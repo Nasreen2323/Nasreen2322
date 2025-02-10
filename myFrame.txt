@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width,
+                   initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .container {
+			display: grid;
+			grid-template-areas:
+				"header header header"
+				"menu content content"
+				"menu imagecol moretext"
+				"tablecol videocol moretext2"
+				"footer footer footer";
+			grid-template-columns: 1fr 3fr;
+			gap: 5px;
+			background-color: #2196F3;
+			padding: 5px;
+		}
+		.container > div {
+			background-color: rgba(255, 255, 255, 0.8);
+			padding: 10px;
+		}
+		.container > div.header {
+			grid-area: header;
+			text-align: center;
+		}
+		.container > div.menu {
+			grid-area: menu;
+		}
+			.container > div.content {
+			grid-area: content;
+		}
+			.container > div.footer {
+		grid-area: footer;
+		}
+
+		* {box-sizing: border-box}
+		body {font-family: Verdana, sans-serif; margin:0}
+		.mySlides {display: none}
+		img {vertical-align: middle;}
+
+		/* Slideshow container */
+		.slideshow-container {
+		max-width: 1000px;
+		position: relative;
+		margin: auto;
+		}
+
+		/* Next & previous buttons */
+		.prev, .next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		font-family: "Times New Roman", Times, serif;
+		margin-top: -22px;
+		color: blue;
+		font-weight: bold;
+		font-size: 22px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		}
+
+		/* Position the "next button" to the right */
+		.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover, .next:hover {
+		background-color: rgba(0,0,0,0.8);
+		}
+
+		/* Caption text */
+		.text {
+		color: #f2f2f2;
+		font-size: 15px;
+		padding: 8px 12px;
+		position: absolute;
+		bottom: 8px;
+		width: 100%;
+		text-align: center;
+		}
+
+		/* Number text (1/3 etc) */
+		.numbertext {
+		color: #0000FF;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+		}
+
+		/* The dots/bullets/indicators */
+		.dot {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 2px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+		}
+
+		.active, .dot:hover {
+		background-color: #717171;
+			}
+
+		/* Fading animation */
+		.fade {
+		animation-name: fade;
+		animation-duration: 1.5s;
+		}
+
+		@keyframes fade {
+		from {opacity: .4} 
+		to {opacity: 1}
+		}
+
+		/* On smaller screens, decrease text size */
+		@media only screen and (max-width: 300px) {
+		.prev, .next,.text {font-size: 8px}
+		}
+    </style>
+</head>
+
+<body>
+<div align="center">
+<!-- Header-->
+<h1 style= "font-size:32px; color:blue"> Header File</h1> </div>
+
+<!-- Slides show-->
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="pic1.jpg" style="width:80%; height:80%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="pic2.jpg" style="width:80%; height:80%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <a href="activity3.html"> <img src="pic3.jpg" style="width:80%; height:80%"> </a>
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)"> <</a>
+<a class="next" onclick="plusSlides(1)"> > </a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+	
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<!--End slide show -->
+
+<!-- Start Grid Layout-->
+<br><br><br><br>
+
+   <div class="container">
+  <div class="header"><h2>My Header</h2></div>
+  <div class="menu">Torism sites links<Br><a href="#">Link 1</a><br><a href="#">Link 2</a><br><a href="#">Link 3</a></div>
+  <div class="content"> <p>text</p></div>
+  <div class="imagecol"> <p>image</p> <img src="pic1.jpg" style="width:30%; height:30%"></div>
+  <div class="moretext"> <p>text</p></div>
+  <div class="tablecol"> <p>Torism sites in Pattani
+        <table style="width:100%" border=2>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Map</th>
+			</tr>
+			<tr>
+				<td>kae Kae beach</td>
+				<td>Panare Distric, Pattani Province</td>
+				<td><a href="https://www.google.com/maps/place/Kae+Beach/@-6.1356208,39.4900936,17z/data=!3m1!4b1!4m6!3m5!1s0x185d31f89002d0f9:0x9dda9e29e1a30686!8m2!3d-6.1356208!4d39.4926685!16s%2Fg%2F11tfz50_6t?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"> Kae Kae beach</a></td>
+			</tr>
+			<tr>
+				<td> Talo Kapho Beach</td>
+				<td>Yaring District, Pattani province</td>
+				<td><a href="https://www.google.com/maps/place/Talo+Kapo+Beach/@6.8989193,101.3684039,17z/data=!3m1!4b1!4m6!3m5!1s0x31b3aa45ecdef2af:0xb7dcdcb704ac0d36!8m2!3d6.898914!4d101.3709842!16s%2Fg%2F1w04glvs?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"> Talo Kapho Beach </a></td>
+			</tr>
+		</table>
+	   
+	   
+	   
+	   </p></div>
+  <div class="videocol"> <p>video</p></div>
+  <div class="moretext2"> <p>text</p></div>
+  <div class="footer"><h4>Footer</h4></div>
+</div>
+
+	
+	
+	<br>
+	<br><br>
+	<br><br>
+The Detail of our contents, there are many types of documents such as texts, sounds, movies, animations, pictures, tables, forms, lists, menus and slides.
+<footer>Contact us <a href="mailto:aaaaakom@yahoo.com">Email to: aaaaakom@yahoo.com</a> </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>  
+  <head>  
+    <title>Pattani bay </title>  
+ </head>  
+
+  <body>    
+  <p align="center"  style="color:blue;font-size:18px" > Pattani bay activities </p>
+  <p align="center" >
+    
+    <img src="tourist_attraction.jpg"> Tourism place </img><br>
+    <img src="coastal_erosion.jpg"> Coastal erosion </img><br>
+    <img src="fishing_boats.jpg"> Fishing boats </img><br>
+    <img src="mangrove_forest.jpg"> Mangrove forest </img><br>
+	<img src="coastal_fishery.jpg"> Coastal fishery </img><br>
+	<img src="marine_fishing_boat.jpg"> Marine fishing boat </img><br>
+   </p>
+  </body>  
+</html>     
